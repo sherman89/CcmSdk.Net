@@ -6,8 +6,8 @@ namespace CcmSdk.Net
 {
     internal static class CcmSdk64
     {
-        [DllImport("CCMSDK64", CharSet = CharSet.Unicode, EntryPoint = "CCMInitialize", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
-        internal static extern int CCMInitialize([In] string pConnectionName);
+        [DllImport("CCMSDK64", CharSet = CharSet.Unicode, ThrowOnUnmappableChar = true, BestFitMapping = false, EntryPoint = "CCMInitialize", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+        internal static extern int CCMInitialize([In][MarshalAs(UnmanagedType.LPUTF8Str)] string pConnectionName);
 
         [DllImport("CCMSDK64", CharSet = CharSet.Unicode, EntryPoint = "CCMUninitialize", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
         internal static extern int CCMUninitialize();
@@ -37,8 +37,8 @@ namespace CcmSdk.Net
         [DllImport("CCMSDK64", CharSet = CharSet.Unicode, EntryPoint = "CCMLaunchApplication", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
         internal static extern int CCMLaunchApplication([In] uint count, [In] CcmNameValuePair[] pParams, [Out] out int hSession);
 
-        [DllImport("CCMSDK64", CharSet = CharSet.Unicode, EntryPoint = "CCMLaunchPublishedApplication", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
-        internal static extern int CCMLaunchPublishedApplication([In] int hSession, [In] string pAppName, [In] string pArguments);
+        [DllImport("CCMSDK64", CharSet = CharSet.Unicode, ThrowOnUnmappableChar = true, BestFitMapping = false, EntryPoint = "CCMLaunchPublishedApplication", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+        internal static extern int CCMLaunchPublishedApplication([In] int hSession, [In][MarshalAs(UnmanagedType.LPUTF8Str)] string pAppName, [In][MarshalAs(UnmanagedType.LPUTF8Str)] string pArguments);
 
         [DllImport("CCMSDK64", CharSet = CharSet.Unicode, EntryPoint = "CCMEnumerateApplications", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
         internal static extern int CCMEnumerateApplications([Out] out uint pCount, ref IntPtr ppICAApplications);
@@ -100,10 +100,10 @@ namespace CcmSdk.Net
         [DllImport("CCMSDK64", CharSet = CharSet.Unicode, EntryPoint = "CCMFreeMemory", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
         internal static extern void CCMFreeMemory(IntPtr pVoid);
 
-        [DllImport("CCMSDK64", CharSet = CharSet.Unicode, EntryPoint = "CCMDisconnectUserSessions", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
-        internal static extern int CCMDisconnectUserSessions([In] string pUserName, [In] string pDomainName);
+        [DllImport("CCMSDK64", CharSet = CharSet.Unicode, ThrowOnUnmappableChar = true, BestFitMapping = false, EntryPoint = "CCMDisconnectUserSessions", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+        internal static extern int CCMDisconnectUserSessions([In][MarshalAs(UnmanagedType.LPUTF8Str)] string pUserName, [In][MarshalAs(UnmanagedType.LPUTF8Str)] string pDomainName);
 
-        [DllImport("CCMSDK64", CharSet = CharSet.Unicode, EntryPoint = "CCMGetActiveSessionCountForUser", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
-        internal static extern int CCMGetActiveSessionCountForUser([In] string pUserName, [In] string pDomainName, [Out] out uint pCount);
+        [DllImport("CCMSDK64", CharSet = CharSet.Unicode, ThrowOnUnmappableChar = true, BestFitMapping = false, EntryPoint = "CCMGetActiveSessionCountForUser", CallingConvention = CallingConvention.StdCall, SetLastError = true)]
+        internal static extern int CCMGetActiveSessionCountForUser([In][MarshalAs(UnmanagedType.LPUTF8Str)] string pUserName, [In][MarshalAs(UnmanagedType.LPUTF8Str)] string pDomainName, [Out] out uint pCount);
     }
 }
