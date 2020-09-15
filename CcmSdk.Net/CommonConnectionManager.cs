@@ -212,8 +212,8 @@ namespace CcmSdk.Net
             };
 
             _ = Environment.Is64BitProcess ?
-                CcmSdk64.CCMFreeICAApplication(0U, ptr) :
-                CcmSdk32.CCMFreeICAApplication(0U, ptr);
+                CcmSdk64.CCMFreeICAApplication(1U, ptr) :
+                CcmSdk32.CCMFreeICAApplication(1U, ptr);
 
             return (CcmErrorCode)result;
         }
@@ -302,8 +302,8 @@ namespace CcmSdk.Net
             sessionInfo = Marshal.PtrToStructure<CcmIcaSession>(ptr);
 
             _ = Environment.Is64BitProcess ?
-                CcmSdk64.CCMFreeICASession(0U, ptr) :
-                CcmSdk32.CCMFreeICASession(0U, ptr);
+                CcmSdk64.CCMFreeICASession(1U, ptr) :
+                CcmSdk32.CCMFreeICASession(1U, ptr);
 
             return (CcmErrorCode)result;
         }
